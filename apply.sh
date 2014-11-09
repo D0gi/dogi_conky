@@ -1,6 +1,6 @@
 #!/bin/bash
-cp -r ./.config ~/
-cp -r ./.conkyskripte ~/
-cp -r ./.screenlayout ~/
-cp .conkyrc ~/
-cp .xsession ~/
+cp -ru ./.config ~/
+cp -ru ./.conkyskripte ~/
+cp -ru ./.screenlayout ~/
+cp -u .conkyrc ~/
+cp -u .xsession ~/
