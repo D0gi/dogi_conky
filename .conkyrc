@@ -123,6 +123,9 @@ ${endif}${endif}${endif}\
 \
 \
 ${color #ff0000}BAT\
+${if_match "${execi 10 .conkyskripte/battery-status.sh}"=="fully-charged"}\
+${color #00ff00} full\
+${else}\
 ${if_match "${execi 10 .conkyskripte/battery-status.sh}"=="charging"}\
 ${color #00aaff} \
 ${execi 10 .conkyskripte/batt-p.sh}% \
@@ -136,6 +139,7 @@ ${else}\
 ${color #ffaa00} \
 ${execi 10 .conkyskripte/battery-percentage.sh}% \
 ${execi 10 .conkyskripte/battery-time.sh} \
+${endif}\
 ${endif}\
 ${endif}\
 \
