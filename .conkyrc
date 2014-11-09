@@ -84,47 +84,59 @@ short_units no
 
 
 TEXT
-${color #0088bb}CPU0:${color #eeeeee}${cpubar cpu0 9,25} ${freq_g 1}\
-${color #0088bb} CPU1:${color #eeeeee}${cpubar cpu1 9,25} ${freq_g 2}\
-${color #0088bb} RAM:${color #eeeeee}${membar 9,25} ${mem}\
-${color #0088bb} Temp:${color #eeeeee}${exec sensors | grep "Core 0" |cut -c 16-22} \
-\
-${color #0088aa} Bat:${color #eeee00}\
-${if_match "${execi 10 .conkyskripte/charging.sh}"=="1"}${color #33ff33}${endif}\
-${if_match "${execi 10 ~/.conkyskripte/batt-p.sh}">="90"}${color #33ff33}${endif}\
-${battery_bar 9,25 CMB1}\
-\
-${color #0088bb} eth0: \
-${if_match "${addr}"=="No Address"}${color #ff3333}\
-${else}${color #33ff33}${endif}${addr}\
-\
-${if_match "${execi 5 .conkyskripte/wlan0-stat.sh}"=="up"}\
-${color #0088bb} SSID:${color #00ff00}${wireless_essid wlan0} \
-${color #0088bb} Link:${color #00ff00}${wireless_link_bar 9,25 wlan0} \
-${color #0088bb} IP:${color #00ff00}${execi 5 ./.conkyskripte/wlan0address.sh} \
-${color #0088bb} .11:${color #00ff00}${wireless_bitrate wlan0} \
-${color #0088bb} Down:${color #00ff00}${downspeedf wlan0}\
-${color #0088bb} Up:${color #00ff00}${upspeedf wlan0}\
+${color #ff0000}CPU1${color #666666}${cpubar cpu0 9,25} ${freq_g 1}\
+${color #ff0000} CPU2${color #666666}${cpubar cpu1 9,25} ${freq_g 2}\
+${color #ff0000} CPU3${color #666666}${cpubar cpu2 9,25} ${freq_g 3}\
+${color #ff0000} CPU4${color #666666}${cpubar cpu3 9,25} ${freq_g 4}\
+${color #ff0000} RAM${color #666666}${membar 9,25} ${mem}\
+ \
+${color #ff0000} BAT\
+${if_match "${execi 10 .conkyskripte/battery-status.sh}"=="charging"}\
+${color #00aaff} \
+${execi 10 .conkyskripte/batt-p.sh}% \
+${execi 10 .conkyskripte/battery-time.sh} \
+${else}\
+${if_match ${execi 10 .conkyskripte/batt-p.sh}<= 20.0}\
+${color #ff0000} \
+${execi 10 .conkyskripte/batt-p.sh}% \
+${execi 10 .conkyskripte/battery-time.sh} \
+${else}\
+${color #ffaa00} \
+${execi 10 .conkyskripte/battery-percentage.sh}% \
+${execi 10 .conkyskripte/battery-time.sh} \
+${endif}\
 ${endif}\
 \
-${color #0088bb} Vol: ${color #00ff00} ${execi 3 .conkyskripte/volume.sh} \
-${color #0088bb} Git:\
+${if_match "${execi 10 .conkyskripte/wlan0-stat.sh}"=="up"}\
+${color #ff0000}SSID${color #666666} ${wireless_essid wlan0} \
+${color #ff0000}LINK${color #666666}${wireless_link_bar 9,25 wlan0} \
+${color #ff0000}IP${color #666666} ${execi 10 ./.conkyskripte/wlan0address.sh} \
+${color #ff0000}RATE${color #666666} ${wireless_bitrate wlan0} \
+${color #ff0000}DOWN${color #666666}${downspeedf wlan0} \
+${color #ff0000}UP${color #666666}${upspeedf wlan0} \
+${endif}\
+${if_match "${execi 10 .conkyskripte/eth0-stat.sh}"=="up"}\
+${color #ff0000}ETH0${color #666666} ${execi 10 ethtool eth0 2>/dev/null | grep Speed | sed -e 's/^\tSpeed: \(.*Mb\/s\).*/\1/'} \
+${color #ff0000} IP${color #666666} ${execi 10 .conkyskripte/eth0address.sh}\
+${endif}\
+\
+${color #ff0000} Vol: ${color #666666} ${execi 3 .conkyskripte/volume.sh} \
+${color #ff0000} Git:\
 ${if_match "${execi 15 .conkyskripte/git-status-debconfsrv.sh}"=="0"}${color #00ff00}\
 ${else}${color #ff0000}${endif} conf\
 ${if_match "${execi 15 .conkyskripte/git-status-awesome.sh}"=="0"}${color #00ff00}\
 ${else}${color #ff0000}${endif} awm\
 
-${color #0088bb}CPU2:${color #eeeeee}${cpubar cpu2 9,25} ${freq_g 3}\
-${color #0088bb} CPU3:${color #eeeeee}${cpubar cpu3 9,25} ${freq_g 4}\
-${color #0088bb} Puffer:${color #eeeeee}${buffers}\
-${color #0088bb}  Cache:${color #eeeeee}${cached}  \
-${color #0088bb} proc:${color #eeeeee}${running_processes}\
+\
+${color #ff0000}Puffer:${color #666666}${buffers}\
+${color #ff0000}  Cache:${color #666666}${cached}  \
+${color #ff0000} proc:${color #666666}${running_processes}\
 ${if_match "${execi 5 .conkyskripte/eth0-stat.sh}"=="up"}\
-${color #0088bb} eth0:${color #00ff00} ${execi 15 ethtool eth0 2>/dev/null | grep Speed | sed -e 's/^\tSpeed: \(.*Mb\/s\).*/\1/'}\
+${color #ff0000} eth0:${color #00ff00} ${execi 15 ethtool eth0 2>/dev/null | grep Speed | sed -e 's/^\tSpeed: \(.*Mb\/s\).*/\1/'}\
 ${endif}\
-${color #0088bb} HDD-IO:${color #eeeeee}${diskio}\
-${color #0088bb} HDD:${color #eeeeee}${fs_bar} ${fs_used_perc}%\
-${color #0088bb} Kernel:${color #eeeeee}${kernel}\
+${color #ff0000} HDD-IO:${color #666666}${diskio}\
+${color #ff0000} HDD:${color #666666}${fs_bar} ${fs_used_perc}%\
+${color #ff0000} Kernel:${color #666666}${kernel}\
 
 
 
