@@ -408,6 +408,7 @@ awful.util.spawn_with_shell("killall nm-applet")
 
 -- run
 awful.util.spawn_with_shell("~/.config/awesome/start.sh")
+awful.util.spawn_with_shell("gnome-sound-applet")
 --awful.util.spawn_with_shell("nm-applet &")
 --awful.util.spawn_with_shell("dropbox start")
 
