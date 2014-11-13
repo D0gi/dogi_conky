@@ -97,7 +97,7 @@ own_window_transparent no
 short_units no
 
 #${font Dungeon:style=Bold:pixelsize=20}
-#########################################################################################################################
+########################################################################################################################################
 TEXT
 ${color #ff0000}CPU ${color #666666}${cpu}%\
 ${color #ff0000} CPU1${color #666666}${cpubar cpu0 9,25} ${freq_g 1}\
@@ -144,8 +144,23 @@ ${endif}\
 ${endif}\
 \
 ${color #ff0000}GIT \
-${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0"}${color #00ff00}\
-${else}${color #ff7000}${endif}Conky \
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0 0"}\
+${color #ff6600}Conky!!!\
+${else}\
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="c 0"}\
+${color #00ff00}Conky\
+${color #ff6600}!\
+${else}\
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0 p"}\
+${color #ff6600}Conky\
+${color #00ff00}!\
+${else}\
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="c p"}\
+${color #00ff00}Conky\
+${endif}\
+${endif}\
+${endif}\
+${endif}\
 \
 ########################################################################################################################################
 
