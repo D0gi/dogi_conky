@@ -146,8 +146,8 @@ ${endif}\
 ${color #ff0000}GIT \
 ${if_match "${execi 15 .conkyskripte/git-status-debconfsrv.sh}"=="0"}${color #00ff00}\
 ${else}${color #ff7000}${endif}Conf \
-${if_match "${execi 15 .conkyskripte/git-status-awesome.sh}"=="0"}${color #00ff00}\
-${else}${color #ff7000}${endif}Awm \
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0"}${color #00ff00}\
+${else}${color #ff7000}${endif}Conky \
 \
 ########################################################################################################################################
 

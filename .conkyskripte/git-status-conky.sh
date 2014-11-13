@@ -1,3 +1,3 @@
 #!/bin/sh
-cd ~/git/awesome
+cd ~/git/conky
 git status --porcelain | wc -l
