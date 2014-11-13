@@ -145,18 +145,17 @@ ${endif}\
 \
 ${color #ff0000}GIT \
 ${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0 0"}\
-${color #ff6600}Conky!!!\
+${color #ff3300}Conky >>^^\
 ${else}\
 ${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="c 0"}\
 ${color #00ff00}Conky\
-${color #ff6600}!\
+${color #ff6600} ^^\
 ${else}\
 ${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0 p"}\
-${color #ff6600}Conky\
-${color #00ff00}!\
+${color #ff6600}Conky >>\
 ${else}\
 ${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="c p"}\
-${color #00ff00}Conky\
+${color #006600}Conky\
 ${endif}\
 ${endif}\
 ${endif}\
