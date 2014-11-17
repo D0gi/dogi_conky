@@ -1,5 +1,5 @@
 #!/bin/sh
-cd ~/git/conky
+cd ~/git/conky/dogi_conky
 ret1=$(git status --porcelain | wc -l)
 ret2=$(git status | grep "Ihr Branch ist vor .* Commit" | wc -l)
 
