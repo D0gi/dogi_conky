@@ -9,4 +9,5 @@ killall nm-applet
 nm-applet &
 cinnamon-sound-applet &
 dropbox start
+btsync-gui &
 conky &
