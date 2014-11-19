@@ -180,28 +180,10 @@ ${color #ff0000}DOWN ${color #666666}${downspeedf wlan0} \
 ${color #ff0000}UP ${color #666666}${upspeedf wlan0} \
 ${endif}\
 \
-\
+
 ########################################################################################################################################
-
-
-${color #ff0000}Puffer:${color #666666}${buffers}\
-${color #ff0000}  Cache:${color #666666}${cached}  \
-${color #ff0000} proc:${color #666666}${running_processes}\
-${color #ff0000} HDD-IO:${color #666666}${diskio}\
-${color #ff0000} HDD:${color #666666}${fs_bar} ${fs_used_perc}%\
-\
 ########################################################################################################################################
-
-
-
-
-$nodename - $sysname $kernel on $machine
-Entropie: ${entropy_bar 9,270}
-$stippled_hr
-${color lightgrey}Uptime:$color $uptime ${color lightgrey}- Load:$color $loadavg
-${color lightgrey}CPU Usage:${color #5000a0} ${cpu}%  ${color lightgrey}Processes:$color $processes ${color grey}Running: $color
-$running_processes
-${cpubar 9,350}
+#$nodename - $sysname $kernel on $machine
 ${color black}${cpugraph 32,350 000000 ff0000}
 ${color lightgrey}RAM    Total:  $color ${execi 10 top -n 1 -b|grep Mem:|awk '{print $5/1024/1024}'|cut -c 1-4}GiB/$memmax
 ${color lightgrey}${execibar 10 top -n 1 -b|grep Mem:|awk '{print $5/$3*100.}'}
@@ -213,14 +195,8 @@ ${color #2b55ff}Buffer Usage:  $color $buffers/$memmax
 ${color #2b55ff}${execibar 10 ./.conkyskripte/buffer.sh}
 ${color orange}Cache  Usage:  $color $cached/$memmax
 ${color orange}${execibar 10 ./.conkyskripte/cache.sh}
-$color$stippled_hr
 ${color lightgrey}Network: Down:${color #8844ee} ${downspeed eth0} ${color lightgrey} ${offset 65}Up:${color #22ccff} ${upspeed eth0}
 ${color black}${downspeedgraph eth0 32,170 442277 8844ee}${offset 10}${color black}${upspeedgraph eth0 32,170 11667f 22ccff}
-${color lightgrey}File systems:  $color${fs_used /}/${fs_size /} - ${fs_used_perc}%
-${fs_bar 9,350}
-${color #88aadd}MPD: $mpd_artist - $mpd_title
-${color #88aadd}${mpd_bar 9,350}
-${color #88aadd}$mpd_status
 ${color}Name                     PID    CPU%    MEM%
 ${color   #ddaa00} ${top name 1} ${top pid 1}  ${top cpu 1}  ${top mem 1}
 ${color lightgrey} ${top name 2} ${top pid 2}  ${top cpu 2}  ${top mem 2}
