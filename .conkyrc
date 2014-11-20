@@ -121,8 +121,9 @@ ${execi 5 sensors | grep "Core0"|awk '{print $3}'|cut -c 2-6}C\
 ${else}${color #bb2222}noDev\
 ${endif}${endif}${endif}\
 \
+${color #ff0000}VOL${color #666666}${execi 5 .conkyskripte/volume.sh}\
 \
-${color #ff0000}BAT\
+${color #ff0000} BAT\
 ${if_match "${execi 10 .conkyskripte/battery-status.sh}"=="fully-charged"}\
 ${color #00ff00} full \
 ${else}\
