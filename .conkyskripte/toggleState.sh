@@ -15,5 +15,14 @@ old="on";  new="off"
 if [ X"$on" == X"" ]; then
   old="off"; new="on"
 fi
+
+if [ "$2" == "+" ]; then
+new="on"
+elif [ "$2" == "-" ]; then
+new="off"
+else
+echo "toggle "
+fi
+
 curl -X PUT -d "{\"state\":\"$new\"}" -H "Content-Type:application/json" "http://$address/api/state/set/$1"
 echo "$1's state from '$old' to '$new'"
