@@ -244,32 +244,30 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
-    awful.key({ modkey, "Control" }, "n", awful.client.restore),
+    awful.key({ modkey, "Control" }, "n",             awful.client.restore),
     awful.key({ modkey, "Control" }, "0", function()  awful.util.spawn_with_shell("~/.conkyskripte/toggleState.sh dogi") end),
     awful.key({ modkey, "Control" }, "+", function()  awful.util.spawn_with_shell("~/.conkyskripte/toggleState.sh dogi +") end),
     awful.key({ modkey, "Control" }, "-", function()  awful.util.spawn_with_shell("~/.conkyskripte/toggleState.sh dogi -") end),
 
 
 -- Lautstärketasten nutzen    folgendes in /etc/xdg/rc-lua
-awful.key({ }, "XF86AudioRaiseVolume", function ()       awful.util.spawn("amixer -D pulse set Master 9%+", false) end), 
-awful.key({ }, "XF86AudioLowerVolume", function ()       awful.util.spawn("amixer -D pulse set Master 9%-", false) end),
-awful.key({ }, "XF86AudioMute", function ()               awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),  
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse set Master 9%+", false) end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse set Master 9%-", false) end),
+    awful.key({ }, "XF86AudioMute",        function () awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),
 
---Heligkeit (nicht getestet)
+    --Heligkeit (nicht getestet)
 --brightness
 --awful.key({ }, "#232", function () brightness("down") end),
 --awful.key({ }, "#233", function () brightness("up") end)
 --besser
  -- Brightness
-    awful.key({ }, "XF86MonBrightnessDown", function ()
-        awful.util.spawn("xbacklight -dec 15") end),
-    awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("xbacklight -inc 15") end),
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 15") end),
+    awful.key({ }, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight -inc 15") end),
 
 
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "r",   function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
