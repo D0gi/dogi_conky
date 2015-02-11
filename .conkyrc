@@ -163,7 +163,7 @@ ${endif}\
 ${endif}\
 \
 ${color #ff3333} \
-${if_match "${execi 8 ~/.conkyskripte/presenceState.sh dogi}"=="1"}${color #33ff33}${endif}\
+${if_match "${execi 8 ~/.conkyskripte/presenceState.sh dogi}"=="on"}${color #33ff33}${endif}\
 L0.13\
 \
 ########################################################################################################################################
