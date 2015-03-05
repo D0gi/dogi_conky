@@ -144,7 +144,7 @@ ${endif}\
 ${endif}\
 ${endif}\
 \
-${color #ff0000}GIT \
+${color #ff0000}GIT[ \
 ${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0 0"}\
 ${color #ff3300}Conky >>^^\
 ${else}\
@@ -162,6 +162,25 @@ ${endif}\
 ${endif}\
 ${endif}\
 \
+${color #ff0000} | \
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0 0"}\
+${color #ff3300}HLK-OPENWRT >>^^\
+${else}\
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="c 0"}\
+${color #00ff00}HLK-OPENWRT\
+${color #ff6600} ^^\
+${else}\
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="0 p"}\
+${color #ff6600}HLK-OPENWRT >>\
+${else}\
+${if_match "${execi 15 .conkyskripte/git-status-conky.sh}"=="c p"}\
+${color #006600}HLK-OPENWRT\
+${endif}\
+${endif}\
+${endif}\
+${endif}\
+\
+${color #ff0000}] \
 ${color #ff3333} \
 ${if_match "${execi 8 ~/.conkyskripte/presenceState.sh dogi}"=="on"}${color #33ff33}${endif}\
 L0.13\
