@@ -1,5 +1,5 @@
 #!/bin/sh
-cd ~/openwrt
+cd ~/hlkrm04
 ret1=$(git status --porcelain | wc -l)
 ret2=$(git status | grep "Ihr Branch ist vor .* Commit" | wc -l)
 
