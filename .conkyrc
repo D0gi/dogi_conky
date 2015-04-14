@@ -100,10 +100,10 @@ short_units no
 ########################################################################################################################################
 TEXT
 ${color #ff0000}CPU ${color #666666}${cpu}%\
-${color #ff0000} CPU1${color #666666}${cpubar cpu0 9,25} ${freq_g 1}\
-${color #ff0000} CPU2${color #666666}${cpubar cpu1 9,25} ${freq_g 2}\
-${color #ff0000} CPU3${color #666666}${cpubar cpu2 9,25} ${freq_g 3}\
-${color #ff0000} CPU4${color #666666}${cpubar cpu3 9,25} ${freq_g 4}\
+${color #ff0000} CPU1${color #666666}${cpubar cpu0 9,25} ${freq_g 0}\
+${color #ff0000} CPU2${color #666666}${cpubar cpu1 9,25} ${freq_g 1}\
+${color #ff0000} CPU3${color #666666}${cpubar cpu2 9,25} ${freq_g 2}\
+${color #ff0000} CPU4${color #666666}${cpubar cpu3 9,25} ${freq_g 3}\
 ${color #ff0000} RAM${color #666666}${membar 9,25} ${mem}\
 \
  ${color #ff0000}TEMP ${color #666666}\
