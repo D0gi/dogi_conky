@@ -1,5 +1,5 @@
 #!/bin/sh
-notify-send -u critical -t 10000 -- 'LOCKING aktiv'"
+notify-send -u critical -t 10000 -- 'LOCKING aktiv'
 
 exec xautolock -detectsleep 
   -time 3 -locker "slock" \
